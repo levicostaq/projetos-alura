@@ -1,1 +1,2 @@
 # projetos-alura
+## 🛠️ Funcionalidades Principais
