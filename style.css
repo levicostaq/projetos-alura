@@ -1,88 +1,122 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: white;
-}
-
+/* Importando fontes */
 body {
-    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-
-body::before {
-    background-image: url("img/code.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.4;
-}
-
+/* Container central */
 .container {
-    width: 1200px;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 24px;
-    border: 1px solid #1875E8;
-    box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
-    background-image: url("img/Ruido.png");
-    background-size: 100% 100%;
-    position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
 }
 
-.container__conteudo {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
+/* Caixa do jogo */
+.game-box {
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-.container__informacoes {
-    flex: 1;
-    padding: 20px;
+.game-box:hover {
+  transform: scale(1.02);
 }
 
-.container__botao {
-    border-radius: 16px;
-    background: #1875E8;
-    padding: 16px 24px;
-    width: 100%;
-    font-size: 24px;
-    font-weight: 700;
-    border: none;
-    margin-top: 16px;
-}
-
-.container__texto {
-    margin: 16px 0 16px 0;
-}
-
-.container__texto-azul {
-    color: #1875E8;
-}
-
+/* Títulos */
 h1 {
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #00e0ff;
 }
 
-h2,
-p,
+p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Input */
+input[type="number"] {
+  width: 70%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input[type="number"]:focus {
+  box-shadow: 0 0 10px #00e0ff;
+}
+
+/* Botões */
 button {
-    font-family: 'Inter', sans-serif;
+  padding: 12px 18px;
+  margin: 8px 5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-h2 {
-    font-size: 32px;
-    font-weight: 400;
+#btnChutar {
+  background: #00e0ff;
+  color: #000;
+}
+
+#btnChutar:hover {
+  background: #00bcd4;
+}
+
+#btnReset {
+  background: #ffcc00;
+  color: #000;
+}
+
+#btnReset:hover {
+  background: #e6b800;
+}
+
+/* Mensagens */
+#mensagem {
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+#tentativas {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+#historico {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #ddd;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  input[type="number"] {
+    width: 90%;
+  }
 }

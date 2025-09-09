@@ -2,30 +2,32 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>JS Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Jogo do Número Secreto</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="container__conteudo">
-            <img src="./img/robot.png" alt="robô mergulhador" class="container__imagem-robo" />
-            <div class="container__informacoes">
-                <img src="./img/trophy.png" alt="ícone de um troféu" />
-                 <div class="container__texto">
-                    <h1>Você <span class="container__texto-azul">acertou!</span></h1>
-                    <h2>Você descobriu o número secreto!</h2>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="game-box">
+      <h1>🎯 Jogo do Número Secreto</h1>
+      <p>Digite um número de <span id="range">1 a 100</span>:</p>
+
+      <input type="number" id="chute" placeholder="Seu palpite..." />
+      <button id="btnChutar">Chutar</button>
+      <button id="btnReset" style="display:none;">Jogar novamente</button>
+
+      <p id="mensagem"></p>
+      <p id="tentativas"></p>
+      <p id="historico"></p>
     </div>
-    <script src="app.js" defer></script>
+  </div>
+
+  <script src="app.js" defer></script>
 </body>
 
 </html>
