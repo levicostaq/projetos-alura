@@ -1,23 +1,57 @@
-alert('Bem vindo ao jogo secreto...');
-let numeroS = parseInt(Math.random() * 100 + 1);
-let chute;
-let tentativas = 0;
-console.log(numeroS)
+let numeroSecreto;
+let tentativas;
+let historico = [];
+const max = 100;
 
-while(chute != numeroS) {
-    chute = prompt('Digite seu chute de 0 a 100: ');
-    tentativas++;
+const chuteInput = document.getElementById("chute");
+const mensagem = document.getElementById("mensagem");
+const tentativasTxt = document.getElementById("tentativas");
+const historicoTxt = document.getElementById("historico");
+const btnChutar = document.getElementById("btnChutar");
+const btnReset = document.getElementById("btnReset");
 
-    if(chute == numeroS) {
-        break;
-    } else {
-        if(chute > numeroS) {
-            alert('O numero secreto eh menor que '+ chute);
-        } else {
-            alert('O numero secreto eh maior do que '+ chute);
-        }
-    }
+function iniciarJogo() {
+  numeroSecreto = Math.floor(Math.random() * max) + 1;
+  tentativas = 0;
+  historico = [];
+  mensagem.textContent = "";
+  tentativasTxt.textContent = "";
+  historicoTxt.textContent = "";
+  chuteInput.value = "";
+  chuteInput.disabled = false;
+  btnChutar.disabled = false;
+  btnReset.style.display = "none";
+  console.log("Número secreto:", numeroSecreto); // debug
 }
 
-let palavratentativas = tentativas > 1 ? ' tentativas' : ' tentativa';
-alert('Parabens voce acertou o numero secreto '+ numeroS+ ' com '+ tentativas + palavratentativas);
+btnChutar.addEventListener("click", () => {
+  const chute = Number(chuteInput.value);
+
+  if (!chute || chute < 1 || chute > max) {
+    mensagem.textContent = "⚠️ Digite um número válido entre 1 e " + max;
+    return;
+  }
+
+  tentativas++;
+  historico.push(chute);
+
+  if (chute === numeroSecreto) {
+    mensagem.textContent = `🎉 Parabéns! Você acertou o número ${numeroSecreto}!`;
+    tentativasTxt.textContent = `Foram ${tentativas} tentativa(s).`;
+    chuteInput.disabled = true;
+    btnChutar.disabled = true;
+    btnReset.style.display = "inline-block";
+  } else if (chute > numeroSecreto) {
+    mensagem.textContent = "🔽 O número secreto é menor!";
+  } else {
+    mensagem.textContent = "🔼 O número secreto é maior!";
+  }
+
+  historicoTxt.textContent = "Seus palpites: " + historico.join(", ");
+  chuteInput.value = "";
+  chuteInput.focus();
+});
+
+btnReset.addEventListener("click", iniciarJogo);
+
+iniciarJogo();
